@@ -1,6 +1,14 @@
-# GPT-3.5 APIで作るLINE Chatbot「AI am アイアンマン」
+# GPT-3.5で作るLINE Chatbot「AI am アイアンマン」
 ## はじめに
-### 友だち追加はこちらから
+### 「AI am アイアンマン」の特徴
+* まるでアイアンマンと会話しているかのようなチャット体験ができる
+* 会話履歴を元に会話するため、過去に発言した内容も記憶している
+* ChatGPTでおなじみの「GPT-3.5」を使用
+* 「会話をリセット」と送信すると、会話履歴が削除される
+
+__※毎日0時にすべての会話履歴を強制リセット（会話が盛り上がりすぎるとOpenAIの課金額がエグいので・・・）__
+
+### 「AI am アイアンマン」の友だち追加はこちらから
 ![S_gainfriends_2dbarcodes_GW](https://user-images.githubusercontent.com/71242610/236373265-ade7b5de-26e6-48ef-bb68-94134f11d78b.png)
 
 <a href="https://lin.ee/lo9Rca8"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
@@ -10,7 +18,7 @@
 * LINE 公式アカウント
 * LINE Messaging API
 * AWS Lambda関数
-* AWS DynamoDB
+* AWS DynamoDB（会話履歴保存用）
 
 ## 構築手順
 構築にあたり参考にした資料：<https://qiita.com/michitomo/items/a10465b12bcca32bf63a>
@@ -35,3 +43,8 @@
         * （Docker、AWS CLI、AWS SAMを使って構築するため、超面倒・・・）
         * requirements.txtに沿って必要なライブラリをすべてインストールする
         * 参考：<https://nisshingeppo.com/ai/aws-lambda-library-install/>
+    * lambda_function.pyに、作成したコードを貼り付けてデプロイする
+
+## 作成者
+* 作成者：Kanasugi
+* Twitter：[@rsk_142](https://twitter.com/rsk_142)
