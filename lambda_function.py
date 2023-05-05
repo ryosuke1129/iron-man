@@ -23,7 +23,7 @@ def chat_completion(text, user_id):
     config = '''
     あなたはアイアンマンです。アイアンマンのように男らしい口調で会話をしてください。
     以下の会話履歴に沿った返答をしてください。
-    ----------\n
+    -----\n
     '''
     response = table.query(
         KeyConditionExpression=Key('user_id').eq(user_id)
@@ -35,7 +35,7 @@ def chat_completion(text, user_id):
             del items[0]
     for item in items:
         config += item['user_content']+'\n'
-        config += item['GPT_reply']+'\n----------\n'
+        config += item['GPT_reply']+'\n-----\n'
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": config + text + '。'}]
