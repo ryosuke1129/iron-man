@@ -63,13 +63,16 @@ def lambda_handler(event, context):
         else:
             try:
                 reply_message = chat_completion(message, user_id)
+                tzinfo = datetime.timezone(datetime.timedelta(hours=9))
+                now = datetime.datetime.now(tzinfo)
                 table.put_item(
                     Item={
                     'user_id': user_id,
-                    'send_at': str(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))),
+                    'send_at': str(now),
                     'message_id': message_id,
                     'user_content': message,
-                    'GPT_reply': reply_message
+                    'GPT_reply': reply_message,
+                    'del_time': int(datetime.datetime.timestamp(datetime.datetime(now.year, now.month, now.day, 0, 0, 0, 0, tzinfo))+86400)
                     }
                 )
                 ok_json = {"isBase64Encoded": False,
