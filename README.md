@@ -46,5 +46,5 @@ __※毎日0時にすべての会話履歴を強制リセットします（OpenA
     * lambda_function.pyに、作成したコードを貼り付けてデプロイする
 
 ## 作成者
-* 作成者：Kanasugi
+* 作成者：K-Ryosuke
 * Twitter：[@rsk_142](https://twitter.com/rsk_142)
